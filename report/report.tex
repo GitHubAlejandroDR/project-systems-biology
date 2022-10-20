@@ -1,0 +1,129 @@
+\documentclass{bmcart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% CARGA DE PAQUETES DE LATEX               %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Load packages
+\usepackage{amsthm,amsmath}
+\usepackage{graphicx}
+%\RequirePackage[numbers]{natbib}
+%\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+\usepackage[spanish]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% COMIENZO DEL DOCUMENTO                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+	\begin{frontmatter}
+	
+		\begin{fmbox}
+			\dochead{Research}
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%% INTRODUCIR TITULO PROYECTO               %%
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			
+			\title{Tiroiditis}
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%% AUTORES. METER UNA ENTRADA AUTHOR        %%
+			%% POR PERSONA                              %%
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			
+			\author[
+			  addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
+			  corref={aff1},                       % ESTA LINEA SOLO DEBE TENERLA EL COORDINADOR DEL GRUPO
+			  email={jane.e.doe@cambridge.co.uk}   % VUESTRO CORREO ACTIVO
+			]{\inits{A.D}\fnm{Alejandro} \snm{Domínguez Recio}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
+		
+			\author[
+			  addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
+			  email={rafatravil@gmail.com}   % VUESTRO CORREO ACTIVO
+			]{\inits{R.T}\fnm{Rafael} \snm{Trapero Vílchez}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
+		
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%% AFILIACION. NO TOCAR                     %%
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			
+			\address[id=aff1]{%                           % unique id
+			  \orgdiv{ETSI Informática},             % department, if any
+			  \orgname{Universidad de Málaga},          % university, etc
+			  \city{Málaga},                              % city
+			  \cny{España}                                    % country
+			}
+		
+		\end{fmbox}% comment this for two column layout
+		
+		\begin{abstractbox}
+		
+			\begin{abstract} % abstract
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%% RESUMEN BREVE DE NO MAS DE 100 PALABRAS   %%
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+			
+			\end{abstract}
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%% PALABRAS CLAVE DEL PROYECTO              %%
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			
+			\begin{keyword}
+			\kwd{sample}
+			\kwd{article}
+			\kwd{author}
+			\end{keyword}
+		
+		
+		\end{abstractbox}
+	
+	\end{frontmatter}
+	
+
+	\input{tex_files/introduction.tex}
+	\input{tex_files/material_methods.tex}
+	\input{tex_files/resultados.tex}
+	\input{tex_files/discusion.tex}
+	\input{tex_files/conclusiones.tex}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% OTRA INFORMACIÓN                         %%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{backmatter}
+	
+		\section*{Abreviaciones}%% if any
+			Indicar lista de abreviaciones mostrando cada acrónimo a que corresponde
+		
+		\section*{Disponibilidad de datos y materiales}%% if any
+			Debéis indicar aquí un enlace a vuestro repositorio de github.
+		
+		\section*{Contribución de los autores}
+			Usando las iniciales que habéis definido al comienzo del documento, debeis indicar la contribución al proyecto en el estilo:
+			J.E : Encargado del análisis de coexpresión con R, escritura de resultados; J.R.S : modelado de red con python y automatizado del código, escritura de métodos; ...
+			OJO: que sea realista con los registros que hay en vuestros repositorios de github. 
+		
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%% BIBLIOGRAFIA: no teneis que tocar nada, solo sustituir el archivo bibliography.bib %%
+		%% por el que hayais generado vosotros                                                %%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+		\bibliography{bibliography}      % Bibliography file (usually '*.bib' )
+	
+	\end{backmatter}
+\end{document}
