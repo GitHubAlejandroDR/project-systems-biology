@@ -11,7 +11,7 @@
 # } else if (length(args)==1) {
 #   stop("Necesita umbral de score como argumento", call.=FALSE)
 # }
-setwd("/home/rafalete/BioSistemas/proyectoFinal/project-systems-biology/code/data/")
+setwd(WD_data)
 string_file = "9606.protein.links.v11.5.txt"
 score_threshold = 700
 
@@ -57,6 +57,9 @@ df = read.csv(string_file, sep = " ", header=TRUE)
 df2= dplyr::filter(df, combined_score >=score_threshold)
 df2$p1 = sapply(df2$protein1, function(i) gsub("9606.", "", i))
 df2$p2 = sapply(df2$protein2, function(i) gsub("9606.", "", i))
+#borramos las 3 primeras columnas
+borrar <- c("protein1","protein2","combined_score")
+df2 <- df2[ , !(names(df2) %in% borrar)]
 write.table(df2, file = "network_diamond_ensp.txt", col.names = F, quote = F, row.names = F, sep = ",")
 df_full_h <- read.delim(file="string_protein_annotations_hashimoto.tsv")
 df_full_t <- read.delim(file="string_protein_annotations_thyroiditis.tsv")
