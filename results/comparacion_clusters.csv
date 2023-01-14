@@ -1,5 +1,0 @@
-"","hashimoto_clusters","tiroiditis_clusters","hCluster_pathway","tCluster_pathway","hCluster_geneRatio","hCluster_pvalue","tCluster_geneRatio","tCluster_pvalue"
-"4","X2","X11","JAK-STAT signaling pathway","JAK-STAT signaling pathway",0.5,1.52770328313589e-05,1,2.82157515965109e-63
-"16","X5","X2","C-type lectin receptor signaling pathway","C-type lectin receptor signaling pathway",0.125,8.70310167337912e-05,0.8,3.07320453790211e-07
-"18","X5","X1","Bacterial invasion of epithelial cells","Bacterial invasion of epithelial cells",0.109375,0.00192011575004545,0.75,1.52770328313589e-05
-"26","X5","X1","Alzheimer disease","Alzheimer disease",0.135416666666667,0.0132274482260826,0.75,0.000395121066610261
