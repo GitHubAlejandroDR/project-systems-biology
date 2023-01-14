@@ -67,16 +67,27 @@ h_ensp <- as.vector(sapply(df_full_h$identifier, function(i) gsub("9606.", "", i
 write.table(h_ensp, file = "hashimoto_ensp.txt", col.names = F, quote = F, row.names = F)
 t_ensp <- as.vector(sapply(df_full_t$identifier, function(i) gsub("9606.", "", i)))
 write.table(t_ensp, file = "thyroiditis_ensp.txt", col.names = F, quote = F, row.names = F)
-h_symbol <- df_full_h$X.node
-t_symbol <- df_full_t$GENE_SYMBOL
 
-## Conversion SYMBOL a ENTREZID
-library(org.Hs.eg.db)
-hs <- org.Hs.eg.db
-my.symbols <- as.vector(h_ensp)
-h_entrez <- mapIds(org.Hs.eg.db, keys = h_symbol, keytype="SYMBOL", column = "ENTREZID")
-
-
+h_symbol <- df_full_h$X.node #hashimoto en symbol
+t_symbol <- df_full_t$X.node #tiroiditis en symbol
+# 
+# ## Conversion SYMBOL a ENTREZID
+# library(org.Hs.eg.db)
+# hs <- org.Hs.eg.db
+# my.symbols <- as.vector(h_ensp)
+# h_entrez <- mapIds(org.Hs.eg.db, keys = h_symbol, keytype="SYMBOL", column = "ENTREZID")
+# 
+# #convertir de ensp a symbol (pierde tambien mucha info)
+# select(org.Hs.eg.db, keys=vector, columns="SYMBOL", keytype="ENSEMBLPROT")
+# 
+# #convertir de ssymbol a entrezid
+# v_prueba <- c("ABL1","AKT1","CDKN1B","FLT3","GRB2","JAK2","LYN","MAPK1","RAC1","RHOA","SRC")
+# mapIds(org.Hs.eg.db, keys = v_prueba, keytype="SYMBOL", column = "ENTREZID")
+# 
+# #convertir de ensp a symbol con biomart (hashimoto)
+# library('biomaRt')
+# mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
+# G_list_hashimoto <- getBM(filters= "ensembl_peptide_id", attributes= c("ensembl_peptide_id","entrezgene_id"),values=df_h$DIAMOnD_node,mart= mart)
 
 # df2$entrezid_1 = sapply(df2$p1, ensp2entrezid)
 # df2$entrezid_1 = as.character(df2$entrezid_1)
@@ -93,3 +104,6 @@ h_entrez <- mapIds(org.Hs.eg.db, keys = h_symbol, keytype="SYMBOL", column = "EN
 # out_guild.df = dplyr::select(out_guild.df, entrezid_1, int, entrezid_2)
 # 
 # write.table(out_guild.df, "network_guild.txt", sep = " ", quote = F, row.names = F, col.names = F)
+
+
+

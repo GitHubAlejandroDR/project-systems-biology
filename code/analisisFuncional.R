@@ -17,23 +17,7 @@ ensp2entrezid <- function(data){
   
   return(G_list$entrezgene_id)
 }
-# 
-# mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
-# G_list <- getBM(filters= "ensembl_peptide_id", attributes= c("ensembl_peptide_id","entrezgene_id"),values=getNodesIn(data_LC_hashimoto,clusterids=c(1)),mart= mart)
 
-# para obtener los entrez ids pasando como parametro el num de cluster
-# obtenerEntrezID <- function(numcluster,data){
-#   ENSP_genes <- substr(getNodesIn(data,clusterids=c(numcluster)),6,20)
-#   genes_ENTREZ <- c()
-#   for(i in 1:length(ENSP_genes)){
-#     if(!is.na(ensp2entrezid(ENSP_genes[i]))){
-#       genes_ENTREZ <- c(genes_ENTREZ,as.character(ensp2entrezid(ENSP_genes[i])))
-#     }
-#   }
-#   return(genes_ENTREZ)
-# }
-
-# para obtener los clusters con los entrez IDs de los genes que los forman. Obtenemos listas de listas que se usaran como parametro para realizar el analisis funcional
 clusters_hpo <- function(data){
   lista <- list()
   for (i in 1:data$numbers[3]){ #recorre el numero de clusters
